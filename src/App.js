@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import EditorPage from "./Components/EditorPage";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
   return (
     <ChakraProvider >
+    <Toaster position="top-center" />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

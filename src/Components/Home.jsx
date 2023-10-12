@@ -8,12 +8,29 @@ import {
   Card,
   Image,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import './Home.css';
 import Logo from "../Assests/Logo.svg";
 import { Link } from "react-router-dom";
+import {v4 as uid} from 'uuid'
+import toast from 'react-hot-toast';
+
 
 const Home = () => {
+  
+  const [roomid, setroomid] = useState('');
+  const [username, setUsername] = useState('');
+  
+ 
+  const CreateRoomId =(e)=>{
+    e.preventDefault();
+    const id = uid();
+
+    setroomid(id);
+    toast.success('Newroom Created')
+   
+
+  }
   return (
     <>
       <Center h="100vh" bgColor="#404258" px={10}>
@@ -23,18 +40,27 @@ const Home = () => {
             <Stack mt="6" spacing="3">
               <Image src={Logo} alt="Logo" w="100px" color={"black"} />
 
-              <Text fontSize="xl" fontWeight={"semibold"}>
+              <Text color={"white"} fontSize="xl" fontWeight={"semibold"}>
                 Paste Room ID
               </Text>
               <input
+                 onChange={(e) => setroomid(e.target.value)}
+                 value={roomid}
                 type="text"
-                style={{ padding: "4px", border: "none", borderRadius: "5px" }}
                 placeholder="ROOM ID"
+               
+                style={{ padding: "4px", border: "3px solid #6B46C1 ", borderRadius: "8px", background:"none", color:"black" }}
+             
+            
+          
               ></input>
               <input
                 type="text"
-                style={{ padding: "4px", border: "none", borderRadius: "5px" }}
+                style={{ padding: "4px", border: "3px solid #6B46C1 ", borderRadius: "8px", background:"none" , }} 
                 placeholder="USERNAME"
+                onChange={(e) => setUsername(e.target.value)}
+                 value={username}
+             
               ></input>
             </Stack>
           </CardBody>
@@ -48,11 +74,12 @@ const Home = () => {
             >
               Join
             </Button>
-            <Text fontWeight={"semibold"}>
-              Do you have room id?{" "}
-              <Link className="link" color="#ff0000" href="/">
+            <Text color={"white"} fontWeight={"semibold"}>
+              Do you have room id? &nbsp;
+              <Link  className="link"    onClick={CreateRoomId}>
                 Create Now
               </Link>
+            
             </Text>
           </CardFooter>
         </Card>
