@@ -1,39 +1,60 @@
 import {
   Button,
-  ButtonGroup,
+  Container,
   Divider,
   HStack,
   Image,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import Editor from "../Components/Editor";
 import Logo from "../Assests/Logo.svg";
 import "./EditorPage.css";
-import Avatar from "react-avatar";
+import Client from "../Components/Client";
 
 const EditorPage = () => {
+  const [clients, setClients] = useState([
+    {
+      socketId: 1,
+      username: "John Doe",
+    },
+    {
+      socketId: 2,
+      username: "martin james",
+    },
+  
+  ]);
+
   return (
     <>
       <HStack>
-        <aside className="aside">
+        <aside className="aside" >
+        <Container >
+
           <Image mb={2} src={Logo} />
           <Divider />
 
-          <Text fontSize={"larger"} fontWeight={"semibold"} color={"white"} mb={3}>
+          <Text
+            fontSize={"larger"}
+            fontWeight={"semibold"}
+            color={"white"}
+            mb={3}
+          >
             Connected
           </Text>
 
-          <Avatar name="Wim Mostmans" size="50" round="50%" />
-          <Avatar name="Mohammad Shoaib" size="50" round="50%" />
+          {clients.map((client) => {
+            return <Client  username={client.username} key={client.socketId} />;
+          })}
 
-          <ButtonGroup mt={"62vh"} colorScheme="purple">
-            <VStack spacing={2}>
+          
+        </Container>
+            <VStack spacing={2} mt={"160%"} className="btn">
               <Button w={40}>Copy Room Id</Button>
               <Button w={40}>Leave</Button>
             </VStack>
-          </ButtonGroup>
+        
         </aside>
         <Editor />
       </HStack>
