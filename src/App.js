@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import EditorPage from "./Components/EditorPage";
+import Home from "./Pages/Home";
+import EditorPage from "./Pages/EditorPage";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Toaster } from "react-hot-toast";
 
