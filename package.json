@@ -10,7 +10,10 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "framer-motion": "^10.16.4",
+=======
+>>>>>>> 81939f7708cff6e74ffa973742db013ab1c7c0e9
     "react": "^18.2.0",
     "react-avatar": "^5.0.3",
     "react-dom": "^18.2.0",
@@ -23,6 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "nodemon index.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
