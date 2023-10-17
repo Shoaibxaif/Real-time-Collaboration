@@ -1,16 +1,13 @@
-import { Textarea } from "@chakra-ui/react";
-import React from "react";
-
-
+import { Textarea } from '@chakra-ui/react'
+import React from 'react'
 
 const Editor = () => {
- 
-
   return (
     <>
-      <Textarea id="realtimeEditor"> </Textarea>
+      <Textarea></Textarea>
     </>
-  );
-};
+  )
+}
 
-export default Editor;
+export default Editor
+
